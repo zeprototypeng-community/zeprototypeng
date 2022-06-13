@@ -1,0 +1,15 @@
+<clr-checkbox-container [clrInline]="'vertical'">
+    <label>
+        {{controlConfig.label}}
+        <span class="required-text" *ngIf="inputService.isRequired(controlConfig)">(*)</span>
+    </label>
+<!-- *ngFor="let item of controlConfig.items; let i=index" -->
+    <clr-checkbox-wrapper >
+        <input type="checkbox" clrCheckbox [formControl]="_control" />
+        <!-- <label>{{item?.label}}</label> -->
+    </clr-checkbox-wrapper>
+    <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['required']">
+        Ce champs est requis
+    </clr-control-error>
+</clr-checkbox-container>
+

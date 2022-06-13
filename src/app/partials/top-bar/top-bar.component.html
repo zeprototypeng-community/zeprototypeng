@@ -1,0 +1,44 @@
+<header class="header header-6">
+    <div class="branding">
+        <a href="javascript://" class="nav-link">
+            <clr-icon shape="vm-bug"></clr-icon>
+            <span class="title">SYS</span>
+        </a>
+    </div>
+    <div class="header-nav">
+        <a [routerLink]="dashboardPath" routerLinkActive="active" class="active nav-link nav-text">Dashboard</a>
+    </div>
+    <div class="header-actions">
+        <a [routerLink]="profilRoute" routerLinkActive="active" class="nav-link nav-icon" aria-label="settings">
+            <clr-icon shape="user"></clr-icon>
+        </a>
+        <a class="nav-link  nav-icon" (click)="onLogOut()">
+            <clr-icon shape="logout"></clr-icon>
+            <!-- Déconnexion -->
+        </a>
+
+        <!-- <div class="dropdown bottom-left">
+            <button class="nav-icon dropdown-toggle" aria-label="toggle settings menu">
+                <clr-icon shape="cog"></clr-icon>
+                <clr-icon shape="angle" direction="down"></clr-icon>
+            </button>
+            <div class="dropdown-menu">
+                <a href="javascript://" class="dropdown-item">About</a>
+                <a href="javascript://" class="dropdown-item">Preferences</a>
+                <a href="javascript://" class="dropdown-item">Log out</a>
+            </div>
+        </div> -->
+
+        <!-- <clr-dropdown [clrCloseMenuOnItemClick]="false">
+            <button class="nav-icon dropdown-toggle" clrDropdownTrigger>
+                <clr-icon shape="logout"></clr-icon>
+            </button>
+            <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
+                <button class="btn btn-primary dropdown-item" (click)="onLogOut()" clrDropdownItem>
+                    Déconnexion
+                </button>
+            </clr-dropdown-menu>
+        </clr-dropdown> -->
+    </div>
+
+</header>

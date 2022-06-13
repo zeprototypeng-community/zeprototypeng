@@ -1,0 +1,47 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" *ngIf="formGroup">
+    <app-dynamic-form [formGroup]="formGroup" [form]="form"></app-dynamic-form>
+
+    <button class="btn btn-sm btn-success" type="submit" *ngIf="updating == false" [disabled]="formGroup.invalid">
+        ENREGISTRER
+    </button>
+    <button class="btn btn-sm btn-success" type="button" *ngIf="updating == true" (click)="onUpdate(formGroup)" [disabled]="formGroup.invalid">
+        MODIFIER
+    </button>
+    <button class="btn btn-sm btn-danger" type="button" *ngIf="updating == true" (click)="onCancel()">
+        ANNULER
+    </button>
+</form>
+
+<clr-datagrid (clrDgRefresh)="onDgRefresh($event)" [clrDgLoading]="loading">
+    <clr-dg-column>Utilisateur</clr-dg-column>
+    <clr-dg-column>Rôle</clr-dg-column>
+    <clr-dg-column>Date</clr-dg-column>
+
+    <clr-dg-row *ngFor="let item of data.data">
+        <clr-dg-cell>{{item.user_id}}</clr-dg-cell>
+        <clr-dg-cell>{{item.role_id}}</clr-dg-cell>
+        <clr-dg-cell>{{item.created_at | date}}</clr-dg-cell>
+        <clr-dg-action-overflow>
+            <button class="action-item" (click)="onEdit(item.id)">MODIFIER</button>
+            <button class="action-item" (click)="onDeleteAttempt(item.id)">SUPPRIMER</button>
+        </clr-dg-action-overflow>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="initialGridState.page.size" [clrDgTotalItems]="data?.total">
+            <clr-dg-page-size [clrPageSizeOptions]="[10, 20, 30]"></clr-dg-page-size>
+            {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} de {{ pagination.totalItems }} Eléments
+        </clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="openModal">
+    <h3 class="modal-title">SUPPRESSION</h3>
+    <div class="modal-body">
+      <p>Voulez vous effectuer la suppression ?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-outline" (click)="openModal = false">ANNULER</button>
+      <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(singleData.id)">CONFIRMER</button>
+    </div>
+  </clr-modal>

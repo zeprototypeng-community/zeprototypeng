@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// ... or 
+// @import "~@ng-select/ng-select/themes/material.theme.css";
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+}
+
+clr-control-error.field-has-error {
+    color: rgb(241, 50, 50) !important;
+}
+
+.content-area form {
+    border-radius: var(--clr-table-border-radius, 0.15rem);
+    border: 0.5px solid #ccc;
+    padding-left: 0.5rem;
+    background-color: #ffffff;
+    margin-bottom: 0.2rem;
+
+    div:first-of-type {
+        width: 100%;
+    }
+
+    input {
+        border: 0.05rem solid;
+        border-color: var(--clr-forms-border-color, #ccc);
+        border-radius: var(--clr-table-border-radius, 0.15rem);
+        width: 100%;
+    }
+}
+
+.custom-style {
+    label {
+        white-space: nowrap;
+    }
+
+    .required-text {
+        color: rgb(241, 50, 50) !important;
+    }
+
+    .custom-ng-select {
+        .clr-form-control{
+            width: 100%;
+            ng-select{
+                width: 100%;
+
+                div.ng-select-container {
+                    min-height: 0;
+                    max-height: 1.2rem;
+                    font-size: .65rem;
+
+                    .ng-value-container, span.ng-clear-wrapper, span.ng-arrow-wrapper {
+                        margin-top: 0.4rem;
+                    }
+                }
+
+                .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+                    font-size: .65rem;
+                    padding: 2px 4px;
+                }
+            }
+        }
+    }
+    .form-array {
+        margin-top: 1.2rem;
+        border-radius: var(--clr-table-border-radius, 0.15rem);
+        border: 0.5px solid #ccc;
+        .form-row {
+            .delete-button {
+                margin-top: 1.6rem;
+            }
+        }
+        .add-button {
+            margin-left: 0.6rem;
+        }
+    }
+}

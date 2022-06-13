@@ -1,0 +1,39 @@
+<ng-container *ngIf="form && form.controls.length > 0  && formGroup">
+    <div class="form form-container clr-row custom-style" [formGroup]="formGroup">
+        <ng-container *ngFor="let control of form.controls">
+            <app-text-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.TEXT"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-text-input>
+
+            <app-email-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.EMAIL"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-email-input>
+
+            <app-date-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.DATE"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-date-input>
+
+            <app-number-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.NUMBER"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-number-input>
+
+            <app-textarea-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.TEXTAREA"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-textarea-input>
+
+            <app-password-input  [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.PASSWORD"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-password-input>
+
+            <app-radio-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.RADIO"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-radio-input>
+
+            <app-checkbox-input  [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.CHECKBOX"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control" [formGroupName]="control.name"></app-checkbox-input>
+
+            <app-select-input [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.SELECT"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-select-input>
+
+            <app-hidden-input *ngIf="control.type === INPUT_TYPE.HIDDEN"
+                [control]="getFormControl(formGroup, control.name)" [controlConfig]="control"></app-hidden-input>
+
+            <app-repeatable-group [class]="inputService.getClass(control.containerClass)" *ngIf="control.type === INPUT_TYPE.ARRAY" 
+            [control]="getFormControl(formGroup, control.name)" [controlConfig]="control" [formArrayName]="control.name"></app-repeatable-group>
+             <!--  -->
+        </ng-container>
+    </div>
+</ng-container>

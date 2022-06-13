@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+  <form class="login" [formGroup]="form" (ngSubmit)="login()">
+    <section class="title">
+      <h3 class="welcome">Bienvenue sur </h3>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Nom d'utilisateur</label>
+        <input type="text" name="username" formControlName="username" clrInput placeholder="Nom d'utilisateur" />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Mot de passe</label>
+        <input type="password" name="password" formControlName="password" clrPassword placeholder="Mot de passe" />
+      </clr-password-container>
+      <!-- <clr-checkbox-wrapper>
+        <label>Resté connecté</label>
+        <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="form.rememberMe" />
+      </clr-checkbox-wrapper> -->
+      <div class="error active" *ngIf="errors">
+        Nom d'utilisateur ou mot de passe incorrect
+      </div>
+      <button type="submit" [clrLoading]="loading" class="btn btn-primary">ME CONNECTER</button>
+    </div>
+  </form>
+</div>

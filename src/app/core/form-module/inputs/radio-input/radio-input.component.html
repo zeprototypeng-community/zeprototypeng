@@ -1,0 +1,18 @@
+
+    <clr-radio-container [clrInline]="inline">
+        <label>
+            {{controlConfig.label}}
+            <span class="required-text" *ngIf="inputService.isRequired(controlConfig)">(*)</span>
+        </label>
+        <clr-radio-wrapper *ngFor="let radioItem of controlConfig.items">
+            <input type="radio" clrRadio  [formControl]="_control" [value]="radioItem?.value"/>
+            <label>{{radioItem?.label}}</label>
+        </clr-radio-wrapper>
+    
+        <clr-control-error class="field-has-error" *ngIf="_control?.touched && _control?.errors?.['required']">
+            Ce champs est requis
+        </clr-control-error>
+    </clr-radio-container>
+<!-- <div [class]="inputService.getClass(controlConfig.containerClass)">
+
+</div> -->

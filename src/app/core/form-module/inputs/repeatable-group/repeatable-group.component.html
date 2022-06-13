@@ -1,0 +1,17 @@
+<div class="form-array">
+    <ng-container *ngFor="let item of formArray.controls; let i = index">
+        <div class="clr-row clr-col-12 form-row">
+            <div class="clr-col-10">
+                <app-dynamic-form  [formGroup]="getFormGroup(item)" [form]="form"></app-dynamic-form>
+            </div>
+        
+            <div class="clr-col-2 delete-button">
+                <button class="btn btn-sm btn-danger" type="button" (click)="remove(i)">SUPPRIMER</button>
+            </div>
+            
+        </div>
+        <!-- <hr> -->
+    </ng-container>
+    <button class="btn btn-sm btn-primary add-button" type="button" (click)="add()">AJOUTER</button>
+</div>
+

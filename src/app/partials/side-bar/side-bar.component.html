@@ -1,0 +1,24 @@
+<clr-vertical-nav [clrVerticalNavCollapsible]="true">
+  <ng-container *ngFor="let item of routes">
+    <clr-vertical-nav-group routerLinkActive="active" *ngIf="item?.children && item?.children.length > 0; else single">
+      <clr-icon clrVerticalNavIcon [attr.shape]="item?.icon" *ngIf="item?.icon"></clr-icon>
+      {{item.label}}
+      <clr-vertical-nav-group-children>
+        <ng-container *ngIf="item?.children && item?.children.length > 0">
+          <ng-container *ngFor="let childrenItem of item?.children">
+            <a clrVerticalNavLink [routerLink]="childrenItem.path" routerLinkActive="active">
+              <clr-icon clrVerticalNavIcon [attr.shape]="childrenItem?.icon" *ngIf="childrenItem?.icon"></clr-icon>
+              {{childrenItem.label}}
+            </a>
+          </ng-container>
+        </ng-container>
+      </clr-vertical-nav-group-children>
+    </clr-vertical-nav-group>
+    <ng-template #single>
+      <a clrVerticalNavLink [routerLink]="item.path" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon [attr.shape]="item?.icon" *ngIf="item?.icon"></clr-icon>
+        {{item.label}}
+      </a>
+    </ng-template>
+  </ng-container>
+</clr-vertical-nav>

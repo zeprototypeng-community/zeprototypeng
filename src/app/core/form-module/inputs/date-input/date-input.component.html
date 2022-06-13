@@ -1,0 +1,17 @@
+<!-- 
+<div [class]="inputService.getClass(controlConfig.containerClass)">
+    
+</div> -->
+<clr-date-container>
+    <label>
+        {{controlConfig.label}}
+        <span class="required-text" *ngIf="inputService.isRequired(controlConfig)">(*)</span>
+    </label>
+    <input type="date" clrDate [formControl]="_control" [placeholder]="isDefined(controlConfig?.placeholder)" />
+    <clr-control-error class="field-has-error" *ngIf="_control?.touched && _control?.errors?.['required']">
+        Ce champs est requis
+    </clr-control-error>
+    <clr-control-error class="field-has-error" *ngIf="_control?.touched && _control?.errors?.['pattern']">
+        Champs invalide
+    </clr-control-error>
+</clr-date-container>

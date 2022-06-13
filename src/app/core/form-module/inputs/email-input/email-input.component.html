@@ -1,0 +1,32 @@
+
+    <div class="clr-form-control">
+        <label class="clr-control-label">
+            {{controlConfig.label}}
+            <span class="required-text" *ngIf="inputService.isRequired(controlConfig)">(*)</span>
+        </label>
+        <div class="clr-control-container">
+            <div class="clr-input-wrapper">
+                <input class="clr-input" type="email" [placeholder]="isDefined(controlConfig?.placeholder)"
+                    [formControl]="_control" />
+            </div>
+            <!-- <clr-control-helper *ngIf="helper">Provide a useful message about the purpose of this input.</clr-control-helper> -->
+            <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['required']">
+                Ce champs est requis
+            </clr-control-error>
+            <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['email']">
+                Ce champs doit etre un email valide.
+            </clr-control-error>
+            <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['minlength']">
+                minimum {{control.errors?.['minlength']?.['requiredLength']}} caractères
+            </clr-control-error>
+            <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['maxlength']">
+                maximum {{control.errors?.['maxlength']?.['requiredLength']}} caractères
+            </clr-control-error>
+            <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['pattern']">
+                Champs invalide
+            </clr-control-error>
+        </div>
+    </div>
+<!-- <div [class]="inputService.getClass(controlConfig.containerClass)">
+
+</div> -->

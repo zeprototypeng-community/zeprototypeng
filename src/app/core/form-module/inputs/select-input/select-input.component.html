@@ -1,0 +1,14 @@
+<div [class]="'custom-ng-select'">
+    <div class="clr-form-control">
+        <label class="clr-control-label">
+            {{controlConfig.label}}
+            <span class="required-text" *ngIf="inputService.isRequired(controlConfig)">(*)</span>
+        </label>
+        <ng-select [class]="'clr-input-wrapper'" [formControl]="_control" [items]="controlConfig.items" bindLabel="label"
+            bindValue="value"   [multiple]="controlConfig?.multiple ? controlConfig?.multiple : false">
+        </ng-select>
+        <clr-control-error class="field-has-error" *ngIf="control?.touched && control?.errors?.['required']">
+            Ce champs est requis
+        </clr-control-error>
+    </div>
+</div>
