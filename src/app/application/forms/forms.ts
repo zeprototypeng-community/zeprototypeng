@@ -11,9 +11,9 @@ export const formIds = {
     roleFormId: 1,
     permissionFormId: 2,
     userFormId: 3,
-    roleUserId: 11,
-    permissionRoleId: 12,
-    permissionUserId: 13
+    roleUserId: 4,
+    permissionRoleId: 5,
+    permissionUserId: 6,
 }
 
 export const forms: Iform[] = [
