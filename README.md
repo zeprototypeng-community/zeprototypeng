@@ -47,7 +47,7 @@ Append route configuration to `children` property of first `Route` object in `/s
 {
     path: appRoutes.myroute.path, // the property that you added to the constant variable
     component: MyComponent, // the generated component
-    data: { breadcrumb: appRoutes.myroute.label } Label to display
+    data: { breadcrumb: appRoutes.myroute.label } //Label to display
 }
 ```
 
@@ -88,7 +88,6 @@ import { FormService } from 'src/app/core/form-module/services/form.service';
 import { UiNotificationService, UIStateStatusCode } from 'src/app/partials/ui-notification/ui-notification.service';
 ...
 export class MyComponent implements OnInit {
-    ...
 
     form: Iform;
     formGroup: FormGroup;
@@ -103,7 +102,6 @@ export class MyComponent implements OnInit {
         this.form = await this.formService.getForm(formIds.myFormId);
         this.formGroup = this.formService.getFormGroup(this.form.controls);
     }
-    ...
 }
 ```
 
