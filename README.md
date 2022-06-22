@@ -1,37 +1,43 @@
-# Our Angular template
+<h1 align="center">
+ZePrototype NG
+</h1>
+<div align="center">
 
-## Prerequisites
+An Angular admin template
+</div>
+
+# Prerequisites
 
 * [Node.js](https://nodejs.org/en/)
 * [Angular v13](https://angular.io/)
 * [Clarity Design v13](https://angular.clarity.design/)
 
-## Installation
+# Installation
 
 Open the command prompt at the root of the project and type the following command.
 > npm install
 
-## Configuration
+# Configuration
 
 Edit environment files `/environments/environment.ts` and `/environments/environment.prod.ts` in relation to your development and deployment environment.
 
-## Quick Start
+# Quick Start
 
 Run the application and enjoy ☻:
 > ng serve
 
-## Usage
+# Usage
 
-### Authentication page
+## Authentication page
 
 Enter username and password to login. You can adjust the authentication system as you wish.
 
-### Components
+## Components
 
 Create your components in module `main`
 > ng generate component main/mycomponentname
 
-### Application routes configuration
+## Application routes configuration
 
 Add a property to `appRoutes` const variable in `/src/app/application/routing/app-routes.ts` file :
 ```
@@ -53,7 +59,7 @@ Append route configuration to `children` property of first `Route` object in `/s
 
 Your component is now accessible through the left sidebar.
 
-### Generate a form
+## Generate a form
 
 Open `/src/app/application/forms/forms.ts` file, add these lines to `formIds` and `Iform` const variables.
 ```
@@ -112,7 +118,7 @@ export class MyComponent implements OnInit {
 </form>
 ```
 
-### API routes configuration
+## API routes configuration
 
 Add a property to `minRoutes` and `apiRoutes` const variables in `/src/app/application/routing/app-routes.ts` file :
 ```
@@ -127,7 +133,7 @@ export const apiRoutes = {
 };
 ```
 
-### List, Create, Update and Delete data
+## List, Create, Update and Delete data
 
 Create a `.ts` file under the directory `/src/app/application/models/` as a model.
 ```
