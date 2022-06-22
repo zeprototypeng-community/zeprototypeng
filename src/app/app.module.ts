@@ -49,7 +49,7 @@ registerLocaleData(localeFr);
       useClass: AuthInterceptor,
       multi: true
     },
-    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    { provide: LOCALE_ID, useValue: 'en-US' },
     DatePipe,
     DateHelper
   ],

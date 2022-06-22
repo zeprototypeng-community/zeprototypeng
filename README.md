@@ -68,25 +68,8 @@ export const forms: Iform[] = [
         id: formIds.myFormId,
         controls: [
             {
-                index: 1,
-                label: "label",
-                name: "label",
-                type: InputType.TEXT,
-                rules: [
-                    { rule: 'required', value: true },
-                ],
-                containerClass: 'clr-col-3'
-            },
-            {
-                index: 2,
-                label: "Description",
-                name: "display_label",
-                rules: [
-                    { rule: 'required', value: true },
-                ],
-                type: InputType.TEXT,
-                containerClass: 'clr-col-3',
-            },
+                // refer to the `controls` property of the object whose `id` property value is equal to `formIds.testFormId`
+            }
         ]
     },
 ]
@@ -122,8 +105,8 @@ export class MyComponent implements OnInit {
 }
 ```
 
-`/src/app/main/my-component/my-component.component.html`
 ```
+`/src/app/main/my-component/my-component.component.html`
 <form [formGroup]="formGroup" *ngIf="formGroup">
     <app-dynamic-form [formGroup]="formGroup" [form]="form"></app-dynamic-form>
 </form>

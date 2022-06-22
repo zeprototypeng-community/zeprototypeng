@@ -21,16 +21,14 @@ export const forms: Iform[] = [
         id: formIds.testFormId,
         controls: [
             {
-                index: 1,
-                label: "NOM",
+                label: "Name",
                 name: "hid",
                 type: InputType.HIDDEN,
                 rules: [],
                 containerClass: 'clr-col-6'
             },
             {
-                index: 1,
-                label: "NOM",
+                label: "Firstname",
                 name: "firstname",
                 type: InputType.TEXT,
                 rules: [
@@ -40,8 +38,7 @@ export const forms: Iform[] = [
                 containerClass: 'clr-col-6'
             },
             {
-                index: 2,
-                label: "Prenom",
+                label: "lastname",
                 name: "lastname",
                 rules: [],
                 type: InputType.TEXT,
@@ -49,7 +46,6 @@ export const forms: Iform[] = [
                 patterns: [patterns.onlyNumbers],
             },
             {
-                index: 2,
                 label: "E-mail",
                 name: "email",
                 value: "d",
@@ -59,8 +55,7 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 2,
-                label: "Mot de passe",
+                label: "Password",
                 name: 'password',
                 rules: [],
                 value: "s",
@@ -69,12 +64,11 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 2,
-                label: "Sexe",
+                label: "Sex",
                 name: "sex",
                 items: [
-                    { value: "M", label: "MASCULIN" },
-                    { value: "F", label: "FEMININ" },
+                    { value: "M", label: "MALE" },
+                    { value: "F", label: "FEMALE" },
                 ],
                 rules: [],
                 type: InputType.RADIO,
@@ -82,13 +76,12 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 2,
-                label: "CATEGORIE",
-                name: "categorie",
+                label: "CATEGORY",
+                name: "category",
                 items: [
-                    { value: false, label: "BEBE", name: "B" },
-                    { value: false, label: "JEUNE", name: "J" },
-                    { value: false, label: "ADULTE", name: "A" },
+                    { value: false, label: "BABY", name: "B" },
+                    { value: false, label: "YOUNG", name: "Y" },
+                    { value: false, label: "ODL", name: "O" },
                 ],
                 rules: [{ rule: 'required', value: true },],
                 type: InputType.CHECKBOX,
@@ -96,7 +89,6 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 3,
                 label: "Age",
                 name: "age",
                 type: 'number',
@@ -105,8 +97,7 @@ export const forms: Iform[] = [
                 patterns: [patterns.onlyNumbers],
             },
             {
-                index: 4,
-                label: "Commentaire",
+                label: "Comment",
                 name: "comment",
                 type: InputType.TEXTAREA,
                 rules: [],
@@ -114,7 +105,6 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 4,
                 label: "DATE",
                 name: "date",
                 type: InputType.DATE,
@@ -125,7 +115,17 @@ export const forms: Iform[] = [
                 patterns: [],
             },
             {
-                index: 5,
+                label: "Permission",
+                name: "permission_id",
+                rules: [
+                    { rule: 'required', value: true },
+                ],
+                type: InputType.SELECT,
+                remote: { url: apiRoutes.permissions, fields: { label: 'label', value: 'id' } },
+                containerClass: 'clr-col-3',
+                multiple: true
+            },
+            {
                 label: "s",
                 type: InputType.ARRAY,
                 name: "F",
@@ -133,16 +133,16 @@ export const forms: Iform[] = [
                 childreen: [
                     {
                         index: 1,
-                        label: "rep NOM",
-                        name: "nom",
+                        label: "input 1",
+                        name: "inputone",
                         type: InputType.TEXT,
                         rules: [ { rule: 'required', value: true },],
                         containerClass: 'clr-col-6'
                     },
                     {
                         index: 2,
-                        label: "rep pren",
-                        name: "pren",
+                        label: "input 2",
+                        name: "inputtwo",
                         type: InputType.TEXT,
                         rules: [],
                         containerClass: 'clr-col-6'
@@ -156,7 +156,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Libelle",
+                label: "Label",
                 name: "label",
                 type: InputType.TEXT,
                 rules: [
@@ -166,7 +166,7 @@ export const forms: Iform[] = [
             },
             {
                 index: 2,
-                label: "Libelle affiché",
+                label: "Display label",
                 name: "display_label",
                 rules: [
                     { rule: 'required', value: true },
@@ -185,14 +185,6 @@ export const forms: Iform[] = [
                 remote: { url: apiRoutes.permissions, fields: { label: 'label', value: 'id' } },
                 containerClass: 'clr-col-3',
                 multiple: true
-            },
-            {
-                index: 4,
-                label: "withDestroyRelationModel",
-                name: "withDestroyRelationModel",
-                rules: [],
-                value: true,
-                type: InputType.HIDDEN
             }
         ]
     },
@@ -201,7 +193,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Libelle",
+                label: "Label",
                 name: "label",
                 type: InputType.TEXT,
                 rules: [
@@ -226,7 +218,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Nom",
+                label: "Lastname",
                 name: "lastname",
                 type: InputType.TEXT,
                 rules: [],
@@ -234,7 +226,7 @@ export const forms: Iform[] = [
             },
             {
                 index: 2,
-                label: "Prénom",
+                label: "Firstname",
                 name: "firstname",
                 type: InputType.TEXT,
                 rules: [],
@@ -242,7 +234,7 @@ export const forms: Iform[] = [
             },
             {
                 index: 3,
-                label: "Nom d'utilisateur",
+                label: "Username",
                 name: "username",
                 rules: [
                     { rule: 'required', value: true },
@@ -263,7 +255,7 @@ export const forms: Iform[] = [
             },
             {
                 index: 5,
-                label: "Mot de passe",
+                label: "Password",
                 name: "password",
                 rules: [
                     { rule: 'required', value: true },
@@ -290,7 +282,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Utilisateur",
+                label: "User",
                 name: "user_id",
                 type: InputType.SELECT,
                 rules: [
@@ -301,7 +293,7 @@ export const forms: Iform[] = [
             },
             {
                 index: 2,
-                label: "Rôle",
+                label: "Role",
                 name: "role_id",
                 rules: [
                     { rule: 'required', value: true },
@@ -317,7 +309,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Rôle",
+                label: "Role",
                 name: "role_id",
                 type: InputType.SELECT,
                 rules: [
@@ -345,7 +337,7 @@ export const forms: Iform[] = [
         controls: [
             {
                 index: 1,
-                label: "Utilisateur",
+                label: "User",
                 name: "user_id",
                 type: InputType.SELECT,
                 rules: [

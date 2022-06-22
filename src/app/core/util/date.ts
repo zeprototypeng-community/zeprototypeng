@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core'
     name: 'dateFormatPipe',
 })
 export class DateHelper implements PipeTransform {
-    transform(value: string) {
-        var datePipe = new DatePipe("en-US");        
-        value = datePipe.transform(this.convertFromStringToDate(value), 'yyyy-MM-dd');
+    transform(value: string, locale: string = 'en-US', format: string = 'yyyy-MM-dd') {
+        var datePipe = new DatePipe(locale);        
+        value = datePipe.transform(this.convertFromStringToDate(value), format);
         return value;
     }
 
